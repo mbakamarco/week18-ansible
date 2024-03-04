@@ -1,13 +1,7 @@
 pipeline {
     agent any
     
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', 
-                url: https://github.com/mbakamarco/week18-ansible.git
-            }
-        }
+    
         stage('deploy ansible playbook') {
             steps {
                 sh 'ansible-playbook -i /home/ec2-user/ansible-dev/inventory /home/ec2-user/ansible-dev/apache.yml'
@@ -18,6 +12,6 @@ pipeline {
                 sh 'ansible-playbook -i /home/ec2-user/ansible-dev/inventory /home/ec2-user/ansible-dev/play1.yml'
             }
         }
-
-    }
+        
 }
+
