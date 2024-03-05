@@ -33,9 +33,9 @@ pipeline {
             }
             steps {
                 script {
-                     Unzip ansible-codes.zip
+                    // Unzip ansible-codes.zip
                     sh 'unzip -o ansible-codes.zip'
-                     Run ansible-playbook from the correct directory
+                    // Run ansible-playbook from the correct directory
                     dir('ansible-codes') {
                         sh 'ansible-vault decrypt /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/ansible-codes/inventory.yml --vault-password-file /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/ansible-codes/abc123.txt'
                         sh 'ansible-playbook -i /home/ec2-user/ansible-dev/inventory.yml /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/ansible-codes/play1.yml'
