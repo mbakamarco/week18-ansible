@@ -37,7 +37,7 @@ pipeline {
                     sh 'unzip -o ansible-codes.zip'
                     // Run ansible-playbook from the correct directory
                     dir('app1') {
-                        sh 'ansible-vault decrypt /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/app1/inventory.yml --vault-password-file /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/app1/encrypt.txt'
+                        //sh 'ansible-vault decrypt /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/app1/inventory.yml --vault-password-file /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/app1/encrypt.txt'
                         sh 'ansible-playbook -i /home/ec2-user/ansible-dev/inventory.yml /home/ec2-user/ansible-dev/workspace/jenkins-ansible-project/app1/play1.yml'
                         
                     }
